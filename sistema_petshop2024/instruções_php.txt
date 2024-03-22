@@ -1,0 +1,54 @@
+\\lab12a-prof\LAB12A\Prof. Douglas\sistema_petshop2024
+Exemplos:
+incluir_orcamento_frontend.php
+incluir_orcamento_backend.php
+
+1 - Iniciar o vertrigo 
+2 - incluir_pet_raca_frontend.php
+    incluir_pet_raca_backend.php
+
+3 - C:\Program Files\VertrigoServ\www\sistema_petshop2024
+
+4 - http://localhost/sistema_petshop2024/
+2024-03-01
+
+
+
+
+
+
+http://127.0.0.1/sistema_petshop2024/
+
+C:\Program Files\VertrigoServ\www
+
+criar pasta sistema_petshop2024
+
+incluir_orcamento_frontend.php
+incluir_orcamento_backend.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE ESTOQUE
+
+CREATE TABLE ESTADO(
+	cd_estado int IDENTITY(1,1),
+	nm_Estado varchar(2),
+ CONSTRAINT pk_estado PRIMARY KEY (cd_estado)
+)
+
+
