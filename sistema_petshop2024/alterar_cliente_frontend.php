@@ -1,40 +1,38 @@
-<!--Início Alterar-->
+<!--Inicio Alterar-->
 <center>
-<body bgcolor="mediumturquoise">
-    <form method="POST" action="alterar_orcamento_backend.php">
-        <p><br>
 
-        ID:<select size="1" name="idorcamento">
-            <?php
-            include "conexao.php";
+    <body bgcolor="mediumturquoise">
+        <form method="POST" action="alterar_cliente_backend.php">
+            <p><br>
 
-            $res=mysql_query("select * from orcamento");
-            while ($registro=mysql_fetch_row($res))
-            {
-                $cod=$registro[0];
-                echo "<option value=\"$cod\">$cod</option>\n";
-            }
-            ?>
+                ID: <select size="1" name="idcliente">
+                    <?php
+                    include "conexao.php";
 
-        </select><br><br>
+                    $res = mysql_query("select * from cliente");
+                    while ($registro = mysql_fetch_row($res)) {
+                        $cod = $registro[0];
 
-        ID Atendimento:<select size="1" name="idatendimento">
-            <?php
-            // Gera a lista de nota fiscal
-            include "conexao.php";
+                        echo "<option value=\"$cod\">$cod</option>\n";
+                    }
+                    ?>
+                </select><br><br>
 
-            $res=mysql_query("select * from atendimento");
-            while ($registro=mysql_fetch_row($res))
-            {
-                $cod=$registro[0];
-                echo "<option value=\"$cod\">$cod</option>\n";
-            }
-            ?>
-        </select><br><br>
-        Valor: <input type="text" name="valor"><br><br> 
-        Data de validade: <input type="text" name="data_validade"><br><br> 
+                ID Pessoa:<select size="1" name="idpessoa">
+                    <?php
+                    include "conexao.php";
 
-        <input type="submit" name="Submit" value="Alterar">
-    </form>
+                    $res = mysql_query("select * from pessoa");
+                    while ($registro = mysql_fetch_row($res)) {
+                        $cod = $registro[0];
+
+                        echo "<option value=\"$cod\">$cod</option>\n";
+                    }
+                    ?>
+                </select><br><br>
+                CPF ou CNPJ: <input type="text" name="cpf_cnpj"><br><br>
+
+                <input type="submit" name="Submit" value="Alterar">
+        </form>
 </center>
 <!--Fim Alterar-->

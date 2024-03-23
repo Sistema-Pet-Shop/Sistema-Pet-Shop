@@ -13,7 +13,10 @@ $data_hora_saida = $_POST['data_hora_saida'];
 $descricao = $_POST['descricao'];
 
 $inserir = mysql_query("INSERT INTO atendimento
-                (idatendimento, pet_idpet,idcliente, funcionario_veterinario, funcionario_entrada, funcionario_saida,data_hora_entrada,data_hora_saida) 
-		        VALUES('$idatendimento','$pet_idpet', '$idcliente', '$funcionario_veterinario', '$funcionario_entrada', '$funcionario_saida','$data_hora_entrada','$data_hora_saida')") or die(mysql_error());
+                (idatendimento, pet_idpet,idcliente, funcionario_veterinario, funcionario_entrada, 
+                funcionario_saida,data_hora_entrada,data_hora_saida) 
+		        VALUES('$idatendimento','$pet_idpet', '$idcliente', '$funcionario_veterinario', 
+                '$funcionario_entrada', '$funcionario_saida','$data_hora_entrada','$data_hora_saida')") 
+                or die(mysql_error());
 mysql_close($db);
 ?>

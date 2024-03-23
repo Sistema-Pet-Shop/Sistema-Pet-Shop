@@ -2,7 +2,7 @@
 <center>
 
     <body bgcolor="mediumturquoise">
-        <form method="POST" action="incluir_orcamento_backend.php">
+        <form method="POST" action="incluir_compra_venda_backend.php">
             <p><br>
 
                 ID: <input type="text" name="idcompra_venda"><br><br>

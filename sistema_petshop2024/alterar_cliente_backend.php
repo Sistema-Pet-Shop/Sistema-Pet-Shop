@@ -2,17 +2,15 @@
 error_reporting(0);
 include "conexao.php";
 
-$idorcamento=$_POST['idorcamento'];
-$idatendimento=$_POST['idatendimento'];
-$valor=$_POST['valor'];
-$data_validade=$_POST['data_validade'];
-				
-$alterar = mysql_query("UPDATE orcamento 
-                    SET idatendimento = '$idatendimento',
-					valor = '$valor', 
-					data_validade = '$data_validade'
-					WHERE idorcamento = '$idorcamento'")
+$idcliente = $_POST['idcliente'];
+$idpessoa = $_POST['idpessoa'];
+$cpf_cnpj = $_POST['cpf_cnpj'];
+
+$inserir = mysql_query("UPDATE cliente 
+					SET idpessoa = '$idpessoa',
+					cpf_cnpj = '$cpf_cnpj', 
+					WHERE idcliente = '$idcliente'")
 					or die (mysql_error());
-mysql_close ($db);
-include "consulta_orcamento.php";
+mysql_close($db);
+include "consulta_cliente.php";
 ?>
