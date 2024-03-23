@@ -2,7 +2,7 @@
 <center>
 
     <body bgcolor="mediumturquoise">
-        <form method="POST" action="incluir_cliente_backend.php">
+        <form method="POST" action="incluir_funcao_backend.php">
             <p><br>
 
                 ID: <input type="text" name="idfuncao"><br><br>
