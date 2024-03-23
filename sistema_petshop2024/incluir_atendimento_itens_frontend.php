@@ -5,18 +5,7 @@
         <form method="POST" action="incluir_atendimento_itens_backend.php">
             <p><br>
 
-            ID Serviço:<select size="1" name="idservico">
-                    <?php
-                    include "conexao.php";
-
-                    $res = mysql_query("select * from servico");
-                    while ($registro = mysql_fetch_row($res)) {
-                        $cod = $registro[0];
-
-                        echo "<option value=\"$cod\">$cod</option>\n";
-                    }
-                    ?>
-                </select><br><br>
+            ID: <input type="text" name="idservico"><br><br>
 
             ID Atendimento:<select size="1" name="idatendimento">
                     <?php

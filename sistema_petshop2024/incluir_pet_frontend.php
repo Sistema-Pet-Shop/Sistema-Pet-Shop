@@ -5,7 +5,7 @@
         <form method="POST" action="incluir_pet_backend.php">
             <p><br>
 
-            ID Pet: <input type="text" name="idpet"><br><br>
+            ID: <input type="text" name="idpet"><br><br>
             ID Cliente:<select size="1" name="cliente_idcliente">
                     <?php
                     include "conexao.php";

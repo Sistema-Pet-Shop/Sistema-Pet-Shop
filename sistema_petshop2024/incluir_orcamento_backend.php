@@ -8,7 +8,7 @@ $data_validade = $_POST['data_validade'];
 
 $inserir = mysql_query("INSERT INTO orcamento 
                 (idorcamento,idatendimento,valor,data_validade) 
-		        VALUES('$idorcamento','$idatendimento','$valor',
-				'$data_validade')") or die(mysql_error());
+		        VALUES('$idorcamento','$idatendimento','$valor','$data_validade')") 
+				or die(mysql_error());
 mysql_close($db);
 ?>
