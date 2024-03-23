@@ -15,11 +15,11 @@ $descricao = $_POST['descricao'];
 $alterar = mysql_query("UPDATE atendimento 
                     SET pet_idpet = '$pet_idpet',
 						idcliente = '$idcliente', 
-						funcionario_veterinario = '$funcionario_veterinario'
-						funcionario_entrada = '$funcionario_entrada'
-						funcionario_saida = '$funcionario_saida'
-						data_hora_entrada = '$data_hora_entrada'
-						data_hora_saida = '$data_hora_saida'
+						funcionario_veterinario = '$funcionario_veterinario',
+						funcionario_entrada = '$funcionario_entrada',
+						funcionario_saida = '$funcionario_saida',
+						data_hora_entrada = '$data_hora_entrada',
+						data_hora_saida = '$data_hora_saida',
 						descricao = '$descricao'
 					
 					WHERE idatendimento = '$idatendimento'")

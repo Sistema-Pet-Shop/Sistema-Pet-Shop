@@ -22,7 +22,7 @@ $alterar = mysql_query("UPDATE atendimento
 					idcliente= '$idcliente',
 					fucionario_veterinario= '$fucionario_veterinario',
 					funcionario_entrada= '$funcionario_entrada',
-					funcionario_saida= '$funcionario_saida',
+					funcionario_saida= '$funcionario_saida'
 
 					WHERE idatendimento = '$idatendimento'")
 	or die(mysql_error());

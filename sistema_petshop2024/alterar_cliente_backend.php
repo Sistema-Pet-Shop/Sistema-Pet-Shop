@@ -8,7 +8,7 @@ $cpf_cnpj = $_POST['cpf_cnpj'];
 
 $inserir = mysql_query("UPDATE cliente 
 					SET idpessoa = '$idpessoa',
-					cpf_cnpj = '$cpf_cnpj', 
+					cpf_cnpj = '$cpf_cnpj'
 					WHERE idcliente = '$idcliente'")
 					or die (mysql_error());
 mysql_close($db);
