@@ -6,7 +6,7 @@
 <body>
 <?php
 error_reporting(0);
-include "conexao.php";
+include "../conexao.php";
 $result = mysql_query("select * from fornecedor", $db);
 echo "<table border='2'>
 <tr>
