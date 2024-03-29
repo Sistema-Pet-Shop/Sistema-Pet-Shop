@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-include "conexao.php";
+include "../conexao.php";
 
 $idfornecedor = $_POST['idfornecedor'];
 $idpessoa = $_POST['idpessoa'];

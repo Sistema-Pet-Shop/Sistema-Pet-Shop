@@ -2,26 +2,14 @@
 <center>
 
     <body bgcolor="mediumturquoise">
-        <form method="POST" action="alterar_cliente_backend.php">
+        <form method="POST" action="alterar_atendimento_itens_backend.php">
             <p><br>
 
-                ID: <select size="1" name="idcliente">
+            ID Serviço:<select size="1" name="idservico">
                     <?php
-                    include "conexao.php";
+                    include "../conexao.php";
 
-                    $res = mysql_query("select * from cliente");
-                    while ($registro = mysql_fetch_row($res)) {
-                        $cod = $registro[0];
-
-                        echo "<option value=\"$cod\">$cod</option>\n";
-                    }
-                    ?>
-
-                ID Pessoa:<select size="1" name="idpessoa">
-                    <?php
-                    include "conexao.php";
-
-                    $res = mysql_query("select * from pessoa");
+                    $res = mysql_query("select * from servico");
                     while ($registro = mysql_fetch_row($res)) {
                         $cod = $registro[0];
 
@@ -29,7 +17,22 @@
                     }
                     ?>
                 </select><br><br>
-                CPF ou CNPJ: <input type="text" name="cpf_cnpj"><br><br>
+
+            ID Atendimento:<select size="1" name="idatendimento">
+                    <?php
+                    include "../conexao.php";
+
+                    $res = mysql_query("select * from atendimento");
+                    while ($registro = mysql_fetch_row($res)) {
+                        $cod = $registro[0];
+
+                        echo "<option value=\"$cod\">$cod</option>\n";
+                    }
+                    ?>
+                </select><br><br>
+
+                Descrição: <input type="text" name="descricao"><br><br>
+                
 
                 <input type="submit" name="Submit" value="Alterar">
         </form>

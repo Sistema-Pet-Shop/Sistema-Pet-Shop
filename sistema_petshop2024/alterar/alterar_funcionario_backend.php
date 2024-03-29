@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-include "conexao.php";
+include "../conexao.php";
 
 $matricula=$_POST['matricula'];
 $funcao_idfuncao=$_POST['funcao_idfuncao'];

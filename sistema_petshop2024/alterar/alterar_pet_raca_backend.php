@@ -1,12 +1,12 @@
 <?php
 error_reporting(0);
-include "conexao.php";
+include "../conexao.php";
 
 $idpet_raca = $_POST['idpet_raca'];
 $descricao = $_POST['descricao'];
 
 
-$inserir = mysql_query("UPDATE pet_raca 
+$alterar = mysql_query("UPDATE pet_raca 
 					SET descricao = '$descricao'
 					WHERE idpet_raca = '$idpet_raca'")
 					or die (mysql_error());

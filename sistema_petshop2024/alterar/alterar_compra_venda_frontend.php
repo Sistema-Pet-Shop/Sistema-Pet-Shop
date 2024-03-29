@@ -7,7 +7,7 @@
 
                 ID: <select size="1" name="idcompra_venda">
                     <?php
-                    include "conexao.php";
+                    include "../conexao.php";
 
                     $res = mysql_query("select * from compra_venda");
                     while ($registro = mysql_fetch_row($res)) {
@@ -20,7 +20,7 @@
 
                 ID Fornecedor:<select size="1" name="idfornecedor">
                     <?php
-                    include "conexao.php";
+                    include "../conexao.php";
 
                     $res = mysql_query("select * from fornecedor");
                     while ($registro = mysql_fetch_row($res)) {
@@ -33,7 +33,7 @@
 
                 ID Cliente:<select size="" name="cliente_idcliente">
                     <?php
-                    include "conexao.php";
+                    include "../conexao.php";
 
                     $res = mysql_query("select * from cliente");
                     while ($registro = mysql_fetch_row($res)) {

@@ -1,13 +1,13 @@
 <?php
 error_reporting(0);
-include "conexao.php";
+include "../conexao.php";
 
 $idpessoa = $_POST['idpessoa'];
 $nome = $_POST['nome'];
 $idade = $_POST['idade'];
 $telefone = $_POST['telefone'];
 
-$inserir = mysql_query("UPDATE pessoa 
+$alterar = mysql_query("UPDATE pessoa 
 					SET nome = '$nome',
 					SET idade = '$idade',
 					SET telefone = '$telefone'

@@ -2,14 +2,14 @@
 <center>
 
     <body bgcolor="mediumturquoise">
-        <form method="POST" action="alterar_pet_raca_backend.php">
+        <form method="POST" action="alterar_servico_backend.php">
             <p><br>
 
-                ID: <select size="1" name="idpet_raca">
+                ID: <select size="1" name="idservico">
                         <?php
-                        include "conexao.php";
+                        include "../conexao.php";
 
-                        $res = mysql_query("select * from pet_raca");
+                        $res = mysql_query("select * from servico");
                         while ($registro = mysql_fetch_row($res)) {
                             $cod = $registro[0];
 
@@ -17,8 +17,8 @@
                         }
                         ?>
                     </select><br><br>
-                    
-                Descrição: <input type="text" name="descricao"><br><br>
+
+                Serviço: <input type="text" name="nome"><br><br>
                 
 
                 <input type="submit" name="Submit" value="Alterar">

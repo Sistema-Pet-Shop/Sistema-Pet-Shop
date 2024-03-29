@@ -7,7 +7,7 @@
 
             ID Financeiro: <select size="1" name="idfinanceiro">
                     <?php
-                    include "conexao.php";
+                    include "../conexao.php";
 
                     $res = mysql_query("select * from financeiro");
                     while ($registro = mysql_fetch_row($res)) {
@@ -20,7 +20,7 @@
 
             ID Atendimento:<select size="1" name="idatendimento">
                     <?php
-                    include "conexao.php";
+                    include "../conexao.php";
 
                     $res = mysql_query("select * from atendimento");
                     while ($registro = mysql_fetch_row($res)) {
@@ -33,7 +33,7 @@
 
             ID Compra Venda:<select size="1" name="compra_venda">
                 <?php
-                include "conexao.php";
+                include "../conexao.php";
 
                 $res = mysql_query("select * from compra_venda");
                 while ($registro = mysql_fetch_row($res)) {

@@ -7,7 +7,7 @@
 
             ID: <select size="1" name="idpessoa">
                     <?php
-                    include "conexao.php";
+                    include "../conexao.php";
 
                     $res = mysql_query("select * from pessoa");
                     while ($registro = mysql_fetch_row($res)) {

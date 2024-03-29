@@ -1,15 +1,15 @@
-<!--Inicio Incluir-->
+<!--Inicio Alterar-->
 <center>
 
     <body bgcolor="mediumturquoise">
-        <form method="POST" action="alterar_atendimento_itens_backend.php">
+        <form method="POST" action="alterar_cliente_backend.php">
             <p><br>
 
-            ID Serviço:<select size="1" name="idservico">
+                ID: <select size="1" name="idfornecedor">
                     <?php
-                    include "conexao.php";
+                    include "../conexao.php";
 
-                    $res = mysql_query("select * from servico");
+                    $res = mysql_query("select * from fornecedor");
                     while ($registro = mysql_fetch_row($res)) {
                         $cod = $registro[0];
 
@@ -18,11 +18,11 @@
                     ?>
                 </select><br><br>
 
-            ID Atendimento:<select size="1" name="idatendimento">
+                ID Pessoa:<select size="1" name="idpessoa">
                     <?php
-                    include "conexao.php";
+                    include "../conexao.php";
 
-                    $res = mysql_query("select * from atendimento");
+                    $res = mysql_query("select * from pessoa");
                     while ($registro = mysql_fetch_row($res)) {
                         $cod = $registro[0];
 
@@ -30,11 +30,11 @@
                     }
                     ?>
                 </select><br><br>
+                Nome Fantasia: <input type="text" name="nomefantasia"><br><br>
 
-                Descrição: <input type="text" name="descricao"><br><br>
-                
+                Razão Social: <input type="text" name="razaosocial"><br><br>
 
                 <input type="submit" name="Submit" value="Alterar">
         </form>
 </center>
-<!--Fim Incluir-->
+<!--Fim Alterar-->

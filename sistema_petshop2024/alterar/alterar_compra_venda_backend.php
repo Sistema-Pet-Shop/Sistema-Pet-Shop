@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-include "conexao.php";
+include "../conexao.php";
 
 $idatendimento = $_POST['idatendimento'];
 $pet_idpet = $_POST['pet_idpet'];
