@@ -1,18 +1,18 @@
 <!--Início Excluir-->
 <center>
     <body bgcolor="lightsteelblue">
-    <form method="POST" action="excluir_funcao_backend.php">
+    <form method="POST" action="excluir_cliente_backend.php">
         <p><br>
-            Codigo:<select size="1" name="idfuncao">
+            Codigo:<select size="1" name="idcliente">
             <?php
                 // Gera a lista de codigo ocupacao
-                include "conexao.php";
-                $res=mysql_query("select * from funcao");
+                include "../conexao.php";
+                $res=mysql_query("select * from cliente");
                 while ($registro=mysql_fetch_row($res))
                 {
                 $cod=$registro[0];
-                $descricao=$registro[1];
-                echo "<option value=\"$cod\">$descricao</option>\n";
+                $cpf_cnpj=$registro[1];
+                echo "<option value=\"$cod\">$cpf_cnpj</option>\n";
                 }
             ?>
             </select><br><br>

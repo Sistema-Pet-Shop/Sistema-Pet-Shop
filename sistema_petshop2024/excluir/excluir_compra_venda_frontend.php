@@ -1,13 +1,13 @@
 <!--Início Excluir-->
 <center>
     <body bgcolor="lightsteelblue">
-    <form method="POST" action="excluir_pet_tipo_backend.php">
+    <form method="POST" action="excluir_compra_venda_backend.php">
         <p><br>
-            Codigo:<select size="1" name="idpet_tipo">
+            Codigo:<select size="1" name="idcompra_venda">
             <?php
                 // Gera a lista de codigo ocupacao
-                include "conexao.php";
-                $res=mysql_query("select * from pet_tipo");
+                include "../conexao.php";
+                $res=mysql_query("select * from compra_venda");
                 while ($registro=mysql_fetch_row($res))
                 {
                 $cod=$registro[0];

@@ -1,18 +1,18 @@
 <!--Início Excluir-->
 <center>
     <body bgcolor="lightsteelblue">
-    <form method="POST" action="excluir_servico_backend.php">
+    <form method="POST" action="excluir_pet_backend.php">
         <p><br>
-            Codigo:<select size="1" name="idservico">
+            Codigo:<select size="1" name="idpet">
             <?php
                 // Gera a lista de codigo ocupacao
-                include "conexao.php";
-                $res=mysql_query("select * from servico");
+                include "../conexao.php";
+                $res=mysql_query("select * from pet");
                 while ($registro=mysql_fetch_row($res))
                 {
                 $cod=$registro[0];
-                $nome=$registro[1];
-                echo "<option value=\"$cod\">$nome</option>\n";
+                $tipo=$registro[1];
+                echo "<option value=\"$cod\">$tipo</option>\n";
                 }
             ?>
             </select><br><br>

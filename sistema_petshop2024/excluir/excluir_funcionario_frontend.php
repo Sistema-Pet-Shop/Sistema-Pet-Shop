@@ -1,18 +1,17 @@
 <!--Início Excluir-->
 <center>
     <body bgcolor="lightsteelblue">
-    <form method="POST" action="excluir_pessoa_backend.php">
+    <form method="POST" action="excluir_funcionario_backend.php">
         <p><br>
-            Codigo:<select size="1" name="idpessoa">
+            Codigo:<select size="1" name="matricula">
             <?php
-                // Gera a lista de codigo ocupacao
-                include "conexao.php";
-                $res=mysql_query("select * from pessoa");
+                include "../conexao.php";
+                $res=mysql_query("select * from funcionario");
                 while ($registro=mysql_fetch_row($res))
                 {
                 $cod=$registro[0];
-                $nome=$registro[1];
-                echo "<option value=\"$cod\">$nome</option>\n";
+
+                echo "<option value=\"$cod\">$cod</option>\n";
                 }
             ?>
             </select><br><br>
