@@ -12,5 +12,5 @@ $inserir = mysql_query("UPDATE cliente
 					WHERE idcliente = '$idcliente'")
 					or die (mysql_error());
 mysql_close($db);
-include "consulta_cliente.php";
+include "../consulta/consulta_cliente.php";
 ?>

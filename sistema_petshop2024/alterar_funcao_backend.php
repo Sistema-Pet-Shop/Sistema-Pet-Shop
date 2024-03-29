@@ -10,5 +10,5 @@ $alterar = mysql_query("UPDATE orcamento
 					WHERE idfuncao = '$idfuncao'")
 					or die (mysql_error());
 mysql_close ($db);
-include "consulta_funcao.php";
+include "../consulta/consulta_funcao.php";
 ?>

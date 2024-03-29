@@ -27,4 +27,4 @@ $alterar = mysql_query("UPDATE atendimento
 					WHERE idatendimento = '$idatendimento'")
 	or die(mysql_error());
 mysql_close($db);
-include "consulta_atendimento.php";
+include "../consulta/consulta_atendimento.php";

@@ -16,5 +16,5 @@ $alterar = mysql_query("UPDATE funcionario
 					WHERE matricula = '$matricula'")
 					or die (mysql_error());
 mysql_close ($db);
-include "consulta_funcionario.php";
+include "../consulta/consulta_funcionario.php";
 ?>

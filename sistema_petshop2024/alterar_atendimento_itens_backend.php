@@ -13,5 +13,5 @@ $alterar = mysql_query("UPDATE atendimento_itens
 					idservico = '$idservico'")
 					or die (mysql_error());
 mysql_close ($db);
-include "consulta_atendimento_itens.php";
+include "../consulta/consulta_atendimento_itens.php";
 ?>

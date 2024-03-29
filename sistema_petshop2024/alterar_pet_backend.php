@@ -18,5 +18,5 @@ $inserir = mysql_query("UPDATE pet
 					WHERE idpet = '$idpet'")
 					or die (mysql_error());
 mysql_close($db);
-include "consulta_pet.php";
+include "../consulta/consulta_pet.php";
 ?>

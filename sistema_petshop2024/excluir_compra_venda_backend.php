@@ -7,5 +7,5 @@
 							WHERE idcompra_venda ='$idcompra_venda'") 
 							or die (mysql_error());
 	mysql_close ($db);
-	include "consulta_compra_venda.php";
+	include "../consulta/consulta_compra_venda.php";
 ?>

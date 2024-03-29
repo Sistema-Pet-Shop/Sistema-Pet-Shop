@@ -7,5 +7,5 @@
 							WHERE idorcamento ='$idorcamento'") 
 							or die (mysql_error());
 	mysql_close ($db);
-	include "consulta_orcamento.php";
+	include "../consulta/consulta_orcamento.php";
 ?>

@@ -14,5 +14,5 @@ $inserir = mysql_query("UPDATE pessoa
 					WHERE idpessoa = '$idpessoa'")
 					or die (mysql_error());
 mysql_close($db);
-include "consulta_pessoa.php";
+include "../consulta/consulta_pessoa.php";
 ?>

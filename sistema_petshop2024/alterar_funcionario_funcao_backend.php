@@ -10,5 +10,5 @@ $inserir = mysql_query("UPDATE funcionario_funcao
 					WHERE funcionario_matricula = '$funcionario_matricula'")
 					or die (mysql_error());
 mysql_close($db);
-include "consulta_funcionario_funcao.php";
+include "../consulta/consulta_funcionario_funcao.php";
 ?>

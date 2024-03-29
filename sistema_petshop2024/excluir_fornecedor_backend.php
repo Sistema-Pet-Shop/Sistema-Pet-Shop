@@ -7,5 +7,5 @@
 							WHERE idfornecedor ='$idfornecedor'") 
 							or die (mysql_error());
 	mysql_close ($db);
-	include "consulta_fornecedor.php";
+	include "../consulta/consulta_fornecedor.php";
 ?>

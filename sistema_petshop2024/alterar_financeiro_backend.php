@@ -23,5 +23,5 @@ $alterar = mysql_query("UPDATE financeiro
 					WHERE idfinanceiro = '$idfinanceiro'")
 					or die (mysql_error());
 mysql_close ($db);
-include "consulta_financeiro.php";
+include "../consulta/consulta_financeiro.php";
 ?>

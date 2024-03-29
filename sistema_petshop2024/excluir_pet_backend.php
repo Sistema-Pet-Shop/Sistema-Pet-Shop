@@ -7,5 +7,5 @@
 							WHERE idpet_raca ='$idpet'") 
 							or die (mysql_error());
 	mysql_close ($db);
-	include "consulta_pet.php";
+	include "../consulta/consulta_pet.php";
 ?>
