@@ -2,26 +2,15 @@
 <center>
 
     <body bgcolor="mediumturquoise">
-        <form method="POST" action="alterar_cliente_backend.php">
+        <form method="POST" action="alterar_orcamento_backend.php">
             <p><br>
 
-                ID: <select size="1" name="idcliente">
+                Funcionário Matricula:<select size="1" name="funcionario_matricula">
                     <?php
+                    // Gera a lista de nota fiscal
                     include "conexao.php";
 
-                    $res = mysql_query("select * from cliente");
-                    while ($registro = mysql_fetch_row($res)) {
-                        $cod = $registro[0];
-
-                        echo "<option value=\"$cod\">$cod</option>\n";
-                    }
-                    ?>
-
-                ID Pessoa:<select size="1" name="idpessoa">
-                    <?php
-                    include "conexao.php";
-
-                    $res = mysql_query("select * from pessoa");
+                    $res = mysql_query("select * from funcionario");
                     while ($registro = mysql_fetch_row($res)) {
                         $cod = $registro[0];
 
@@ -29,7 +18,19 @@
                     }
                     ?>
                 </select><br><br>
-                CPF ou CNPJ: <input type="text" name="cpf_cnpj"><br><br>
+
+                Função:<select size="1" name="funcao_idfuncao">
+                    <?php
+                    include "conexao.php";
+
+                    $res = mysql_query("select * from funcao");
+                    while ($registro = mysql_fetch_row($res)) {
+                        $cod = $registro[0];
+
+                        echo "<option value=\"$cod\">$cod</option>\n";
+                    }
+                    ?>
+                </select><br><br>
 
                 <input type="submit" name="Submit" value="Alterar">
         </form>

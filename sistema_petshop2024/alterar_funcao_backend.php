@@ -6,7 +6,7 @@ $idfuncao = $_POST['idfuncao'];
 $descricao = $_POST['descricao'];
 				
 $alterar = mysql_query("UPDATE orcamento 
-                    SET descricao = '$descricao',
+                    SET descricao = '$descricao'
 					WHERE idfuncao = '$idfuncao'")
 					or die (mysql_error());
 mysql_close ($db);
