@@ -1,3 +1,15 @@
+30 - arquivos incluir  (frontend - backend)
+30 - arquivos alterar  (frontend - backend)
+30 - arquivos excluir  (frontend - backend)
+15 - arquivos consulta (backend)
+
+1 arquivos css (padronizar os formulários)
+1 arquivos javascript (menu)
+1 arquivo sistema_petshop2024.sql
+
+Nota P1
+________________________________________________________________________
+
 \\lab12a-prof\LAB12A\Prof. Douglas\sistema_petshop2024
 Exemplos:
 incluir_orcamento_frontend.php
@@ -27,28 +39,5 @@ incluir_orcamento_frontend.php
 incluir_orcamento_backend.php
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-CREATE DATABASE ESTOQUE
-
-CREATE TABLE ESTADO(
-	cd_estado int IDENTITY(1,1),
-	nm_Estado varchar(2),
- CONSTRAINT pk_estado PRIMARY KEY (cd_estado)
-)
 
 

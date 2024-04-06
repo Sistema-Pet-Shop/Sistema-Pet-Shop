@@ -1,11 +1,11 @@
 <?php
 	error_reporting(0);
 	include "../conexao.php";
-	$idservico=$_POST['idservico'];
+	$idcliente=$_POST['idcliente'];
 
-	$excluir = mysql_query("DELETE FROM atendimento_itens 
-							WHERE idservico ='$idservico'") 
+	$excluir = mysql_query("DELETE FROM cliente 
+							WHERE idcliente ='$idcliente'") 
 							or die (mysql_error());
 	mysql_close ($db);
-	include "../consulta/consulta_atendimento_itens.php";
+	include "../consulta/consulta_cliente.php";
 ?>
