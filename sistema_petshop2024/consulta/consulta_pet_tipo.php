@@ -2,7 +2,7 @@
 <head>
 <center>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Consulta Pet Tipo/title>
+<title>Consulta Pet Tipo</title>
 <body>
 <?php
 error_reporting(0);
