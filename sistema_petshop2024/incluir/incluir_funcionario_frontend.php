@@ -2,7 +2,7 @@
 <center>
 
     <body bgcolor="mediumturquoise">
-        <form method="POST" action="incluir_orcamento_backend.php">
+        <form method="POST" action="incluir_funcionario_backend.php">
             <p><br>
 
                 ID: <input type="text" name="matricula"><br><br>
