@@ -1,4 +1,5 @@
 <!--Inicio Alterar-->
+
 <center>
 
     <body bgcolor="mediumturquoise">
@@ -7,6 +8,7 @@
 
                 ID: <select size="1" name="matricula">
                     <?php
+
                     include "../conexao.php";
 
                     $res = mysql_query("select * from funcionario");
