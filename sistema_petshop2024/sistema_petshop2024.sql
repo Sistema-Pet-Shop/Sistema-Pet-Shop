@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 24-Fev-2024 às 15:23
+-- Generation Time: 06-Abr-2024 às 13:30
 -- Versão do servidor: 5.7.12
 -- PHP Version: 5.6.20
 
@@ -33,10 +33,17 @@ CREATE TABLE `atendimento` (
   `descricao` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `pet_idpet` int(11) NOT NULL,
   `idcliente` int(11) NOT NULL,
-  `fucionario_veterinario` int(11) NOT NULL,
+  `funcionario_veterinario` int(11) NOT NULL,
   `funcionario_entrada` int(11) NOT NULL,
   `funcionario_saida` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `atendimento`
+--
+
+INSERT INTO `atendimento` (`idatendimento`, `data_hora_entrada`, `data_hora_saida`, `descricao`, `pet_idpet`, `idcliente`, `funcionario_veterinario`, `funcionario_entrada`, `funcionario_saida`) VALUES
+(1, '2024-04-06 12:00:00', '2024-04-06 12:50:00', 'Banho', 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -50,6 +57,13 @@ CREATE TABLE `atendimento_itens` (
   `descricao` varchar(45) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `atendimento_itens`
+--
+
+INSERT INTO `atendimento_itens` (`idservico`, `idatendimento`, `descricao`) VALUES
+(1, 1, 'Banho Completo');
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +75,13 @@ CREATE TABLE `cliente` (
   `cpf_cnpj` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `idpessoa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`idcliente`, `cpf_cnpj`, `idpessoa`) VALUES
+(1, '65783459802', 2);
 
 -- --------------------------------------------------------
 
@@ -77,6 +98,13 @@ CREATE TABLE `compra_venda` (
   `cliente_idcliente` int(11) NOT NULL,
   `tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `compra_venda`
+--
+
+INSERT INTO `compra_venda` (`idcompra_venda`, `descricao`, `valor`, `nro_nota`, `idfornecedor`, `cliente_idcliente`, `tipo`) VALUES
+(1, 'Banho', 25, '123452673089022', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -95,6 +123,13 @@ CREATE TABLE `financeiro` (
   `financeiro_tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `financeiro`
+--
+
+INSERT INTO `financeiro` (`idfinanceiro`, `valor`, `data_vencimento`, `data_pagamento`, `idatendimento`, `compra_venda`, `status`, `financeiro_tipo`) VALUES
+(1, 25, '2024-04-06 13:00:00', '2024-04-06 13:00:00', 1, 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +143,13 @@ CREATE TABLE `fornecedor` (
   `idpessoa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `fornecedor`
+--
+
+INSERT INTO `fornecedor` (`idfornecedor`, `nomefantasia`, `razaosocial`, `idpessoa`) VALUES
+(1, 'Sothis Stars', 'Sothis Stars Blue', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -118,6 +160,13 @@ CREATE TABLE `funcao` (
   `idfuncao` int(11) NOT NULL,
   `descricao` varchar(45) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `funcao`
+--
+
+INSERT INTO `funcao` (`idfuncao`, `descricao`) VALUES
+(1, 'Banho Completo');
 
 -- --------------------------------------------------------
 
@@ -133,6 +182,13 @@ CREATE TABLE `funcionario` (
   `pessoa_idpessoa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `funcionario`
+--
+
+INSERT INTO `funcionario` (`matricula`, `funcao_idfuncao`, `data_admissao`, `data_demissao`, `pessoa_idpessoa`) VALUES
+(1, 1, '2024-04-13', '2025-04-13', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -143,6 +199,13 @@ CREATE TABLE `funcionario_funcao` (
   `funcionario_matricula` int(11) NOT NULL,
   `funcao_idfuncao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `funcionario_funcao`
+--
+
+INSERT INTO `funcionario_funcao` (`funcionario_matricula`, `funcao_idfuncao`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -157,6 +220,13 @@ CREATE TABLE `orcamento` (
   `idatendimento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `orcamento`
+--
+
+INSERT INTO `orcamento` (`idorcamento`, `valor`, `data_validade`, `idatendimento`) VALUES
+(1, 25, '2024-04-06 00:00:00', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -167,8 +237,16 @@ CREATE TABLE `pessoa` (
   `idpessoa` int(11) NOT NULL,
   `nome` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `idade` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `telefone` int(45) NOT NULL
+  `telefone` varchar(45) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `pessoa`
+--
+
+INSERT INTO `pessoa` (`idpessoa`, `nome`, `idade`, `telefone`) VALUES
+(1, 'Pedro', '22', '11985736492'),
+(2, 'Ana', '20', '11849437817');
 
 -- --------------------------------------------------------
 
@@ -185,6 +263,13 @@ CREATE TABLE `pet` (
   `pet_tipo_idpet_tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `pet`
+--
+
+INSERT INTO `pet` (`idpet`, `tipo`, `idade`, `raca_idraca`, `cliente_idcliente`, `pet_tipo_idpet_tipo`) VALUES
+(1, 'Pequeno', '1', 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -195,6 +280,13 @@ CREATE TABLE `pet_raca` (
   `idpet_raca` int(11) NOT NULL,
   `descricao` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `pet_raca`
+--
+
+INSERT INTO `pet_raca` (`idpet_raca`, `descricao`) VALUES
+(1, 'Chihuahua');
 
 -- --------------------------------------------------------
 
@@ -207,6 +299,13 @@ CREATE TABLE `pet_tipo` (
   `descricao` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `pet_tipo`
+--
+
+INSERT INTO `pet_tipo` (`idpet_tipo`, `descricao`) VALUES
+(1, 'Cachorro');
+
 -- --------------------------------------------------------
 
 --
@@ -217,6 +316,13 @@ CREATE TABLE `servico` (
   `idservico` int(11) NOT NULL,
   `nome` varchar(45) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `servico`
+--
+
+INSERT INTO `servico` (`idservico`, `nome`) VALUES
+(1, 'Banho');
 
 --
 -- Indexes for dumped tables
@@ -335,67 +441,67 @@ ALTER TABLE `servico`
 -- AUTO_INCREMENT for table `atendimento`
 --
 ALTER TABLE `atendimento`
-  MODIFY `idatendimento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idatendimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `compra_venda`
 --
 ALTER TABLE `compra_venda`
-  MODIFY `idcompra_venda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcompra_venda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `financeiro`
 --
 ALTER TABLE `financeiro`
-  MODIFY `idfinanceiro` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idfinanceiro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  MODIFY `idfornecedor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idfornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `funcao`
 --
 ALTER TABLE `funcao`
-  MODIFY `idfuncao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idfuncao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `matricula` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `orcamento`
 --
 ALTER TABLE `orcamento`
-  MODIFY `idorcamento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idorcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `pessoa`
 --
 ALTER TABLE `pessoa`
-  MODIFY `idpessoa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idpessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `idpet` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idpet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `pet_raca`
 --
 ALTER TABLE `pet_raca`
-  MODIFY `idpet_raca` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idpet_raca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `pet_tipo`
 --
 ALTER TABLE `pet_tipo`
-  MODIFY `idpet_tipo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idpet_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `servico`
 --
 ALTER TABLE `servico`
-  MODIFY `idservico` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idservico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
