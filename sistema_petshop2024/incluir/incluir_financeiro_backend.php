@@ -13,7 +13,7 @@ $financeiro_tipo = $_POST['financeiro_tipo'];
 
 
 $inserir = mysql_query("INSERT INTO financeiro
-                (idfinanceiro, idatendimento,valor,compra_venda, data_vencimento, data_pagamento, 'status',financeiro_tipo) 
+                (idfinanceiro, idatendimento,valor,compra_venda, data_vencimento, data_pagamento, status,financeiro_tipo) 
 		        VALUES('$idfinanceiro','$idatendimento', '$valor','$compra_venda', '$data_vencimento', '$data_pagamento', '$status','$financeiro_tipo')") or die(mysql_error());
 mysql_close($db);
 ?>

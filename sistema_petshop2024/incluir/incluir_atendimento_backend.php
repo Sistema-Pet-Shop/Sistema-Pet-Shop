@@ -14,9 +14,9 @@ $descricao = $_POST['descricao'];
 
 $inserir = mysql_query("INSERT INTO atendimento
                 (idatendimento, pet_idpet,idcliente, funcionario_veterinario, funcionario_entrada, 
-                funcionario_saida,data_hora_entrada,data_hora_saida) 
+                funcionario_saida,data_hora_entrada,data_hora_saida,descricao) 
 		        VALUES('$idatendimento','$pet_idpet', '$idcliente', '$funcionario_veterinario', 
-                '$funcionario_entrada', '$funcionario_saida','$data_hora_entrada','$data_hora_saida')") 
+                '$funcionario_entrada', '$funcionario_saida','$data_hora_entrada','$data_hora_saida','$descricao')") 
                 or die(mysql_error());
 mysql_close($db);
 ?>

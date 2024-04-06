@@ -2,7 +2,7 @@
 <center>
 
     <body bgcolor="mediumturquoise">
-        <form method="POST" action="incluir_cliente_backend.php">
+        <form method="POST" action="incluir_fornecedor_backend.php">
             <p><br>
 
                 ID: <input type="text" name="idfornecedor"><br><br>
