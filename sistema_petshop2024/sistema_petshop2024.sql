@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 06-Abr-2024 às 13:30
+-- Generation Time: 06-Abr-2024 às 14:02
 -- Versão do servidor: 5.7.12
 -- PHP Version: 5.6.20
 
@@ -43,7 +43,10 @@ CREATE TABLE `atendimento` (
 --
 
 INSERT INTO `atendimento` (`idatendimento`, `data_hora_entrada`, `data_hora_saida`, `descricao`, `pet_idpet`, `idcliente`, `funcionario_veterinario`, `funcionario_entrada`, `funcionario_saida`) VALUES
-(1, '2024-04-06 12:00:00', '2024-04-06 12:50:00', 'Banho', 1, 1, 1, 1, 1);
+(1, '2024-04-06 12:00:00', '2024-04-06 12:50:00', 'Banho', 1, 1, 1, 1, 1),
+(2, '2024-04-05 14:30:00', '2024-04-05 15:10:00', 'Banho Completo', 2, 2, 2, 2, 2),
+(3, '2024-04-14 14:30:00', '2024-04-14 15:10:00', 'Cortar Unhas', 3, 3, 1, 3, 1),
+(4, '2024-04-02 10:30:00', '2024-04-02 10:50:00', 'Tosagem', 4, 1, 2, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -62,7 +65,9 @@ CREATE TABLE `atendimento_itens` (
 --
 
 INSERT INTO `atendimento_itens` (`idservico`, `idatendimento`, `descricao`) VALUES
-(1, 1, 'Banho Completo');
+(1, 1, 'Banho Completo'),
+(2, 2, 'Secafdor'),
+(3, 2, 'Secador');
 
 -- --------------------------------------------------------
 
@@ -81,7 +86,9 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`idcliente`, `cpf_cnpj`, `idpessoa`) VALUES
-(1, '65783459802', 2);
+(1, '65783459802', 2),
+(2, '7465837291', 4),
+(3, '097685837291', 3);
 
 -- --------------------------------------------------------
 
@@ -104,7 +111,10 @@ CREATE TABLE `compra_venda` (
 --
 
 INSERT INTO `compra_venda` (`idcompra_venda`, `descricao`, `valor`, `nro_nota`, `idfornecedor`, `cliente_idcliente`, `tipo`) VALUES
-(1, 'Banho', 25, '123452673089022', 1, 1, 1);
+(1, 'Banho', 25, '123452673089022', 1, 1, 1),
+(2, 'Secador', 350.99, '38478329829345', 1, 3, 2),
+(3, 'Toalha', 100, '3456789257837', 1, 1, 3),
+(4, 'Ventilador', 400, '85876789257837', 2, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -128,7 +138,9 @@ CREATE TABLE `financeiro` (
 --
 
 INSERT INTO `financeiro` (`idfinanceiro`, `valor`, `data_vencimento`, `data_pagamento`, `idatendimento`, `compra_venda`, `status`, `financeiro_tipo`) VALUES
-(1, 25, '2024-04-06 13:00:00', '2024-04-06 13:00:00', 1, 1, 1, 1);
+(1, 25, '2024-04-06 13:00:00', '2024-04-06 13:00:00', 1, 1, 1, 1),
+(2, 30, '2024-04-06 23:00:00', '2024-04-06 12:00:00', 3, 2, 2, 1),
+(3, 100, '2024-04-10 14:00:00', '2024-04-10 10:00:00', 3, 1, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -148,7 +160,9 @@ CREATE TABLE `fornecedor` (
 --
 
 INSERT INTO `fornecedor` (`idfornecedor`, `nomefantasia`, `razaosocial`, `idpessoa`) VALUES
-(1, 'Sothis Stars', 'Sothis Stars Blue', 1);
+(1, 'Sothis Stars', 'Sothis Stars Blue', 1),
+(2, 'Blue Pet', 'Blue Pet Ltda', 2),
+(3, 'Petico', 'Petico Racao S.A.', 3);
 
 -- --------------------------------------------------------
 
@@ -166,7 +180,10 @@ CREATE TABLE `funcao` (
 --
 
 INSERT INTO `funcao` (`idfuncao`, `descricao`) VALUES
-(1, 'Banho Completo');
+(1, 'Banho Completo'),
+(2, 'Secagem'),
+(3, 'Tosagem'),
+(4, 'Cortar Unhas');
 
 -- --------------------------------------------------------
 
@@ -187,7 +204,9 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`matricula`, `funcao_idfuncao`, `data_admissao`, `data_demissao`, `pessoa_idpessoa`) VALUES
-(1, 1, '2024-04-13', '2025-04-13', 1);
+(1, 1, '2024-04-13', '2025-04-13', 1),
+(2, 4, '2024-04-13', '2025-05-22', 3),
+(3, 1, '2024-03-05', '2025-05-22', 4);
 
 -- --------------------------------------------------------
 
@@ -205,7 +224,10 @@ CREATE TABLE `funcionario_funcao` (
 --
 
 INSERT INTO `funcionario_funcao` (`funcionario_matricula`, `funcao_idfuncao`) VALUES
-(1, 1);
+(1, 1),
+(1, 2),
+(3, 3),
+(1, 4);
 
 -- --------------------------------------------------------
 
@@ -225,7 +247,10 @@ CREATE TABLE `orcamento` (
 --
 
 INSERT INTO `orcamento` (`idorcamento`, `valor`, `data_validade`, `idatendimento`) VALUES
-(1, 25, '2024-04-06 00:00:00', 1);
+(1, 25, '2024-04-06 00:00:00', 1),
+(2, 200, '2024-04-13 00:00:00', 2),
+(3, 150, '2024-04-09 00:00:00', 3),
+(4, 50, '2024-05-02 00:00:00', 4);
 
 -- --------------------------------------------------------
 
@@ -246,7 +271,9 @@ CREATE TABLE `pessoa` (
 
 INSERT INTO `pessoa` (`idpessoa`, `nome`, `idade`, `telefone`) VALUES
 (1, 'Pedro', '22', '11985736492'),
-(2, 'Ana', '20', '11849437817');
+(2, 'Ana', '20', '11849437817'),
+(3, 'Maria', '25', '11893847582'),
+(4, 'Giovana', '29', '1189389834');
 
 -- --------------------------------------------------------
 
@@ -268,7 +295,10 @@ CREATE TABLE `pet` (
 --
 
 INSERT INTO `pet` (`idpet`, `tipo`, `idade`, `raca_idraca`, `cliente_idcliente`, `pet_tipo_idpet_tipo`) VALUES
-(1, 'Pequeno', '1', 1, 1, 1);
+(1, 'Pequeno', '1', 1, 1, 1),
+(2, 'Grande', '3', 3, 2, 2),
+(3, 'MÃ©dio', '5', 3, 2, 2),
+(4, 'Pequeno Ave', '3', 2, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -286,7 +316,9 @@ CREATE TABLE `pet_raca` (
 --
 
 INSERT INTO `pet_raca` (`idpet_raca`, `descricao`) VALUES
-(1, 'Chihuahua');
+(1, 'Chihuahua'),
+(2, 'American pit bull terrier'),
+(3, 'Calopsita');
 
 -- --------------------------------------------------------
 
@@ -304,7 +336,9 @@ CREATE TABLE `pet_tipo` (
 --
 
 INSERT INTO `pet_tipo` (`idpet_tipo`, `descricao`) VALUES
-(1, 'Cachorro');
+(1, 'Cachorro'),
+(2, 'Cachorro'),
+(3, 'Ave');
 
 -- --------------------------------------------------------
 
@@ -322,7 +356,9 @@ CREATE TABLE `servico` (
 --
 
 INSERT INTO `servico` (`idservico`, `nome`) VALUES
-(1, 'Banho');
+(1, 'Banho'),
+(2, 'Tosa'),
+(3, 'Cortar Unhas');
 
 --
 -- Indexes for dumped tables
@@ -441,67 +477,67 @@ ALTER TABLE `servico`
 -- AUTO_INCREMENT for table `atendimento`
 --
 ALTER TABLE `atendimento`
-  MODIFY `idatendimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idatendimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `compra_venda`
 --
 ALTER TABLE `compra_venda`
-  MODIFY `idcompra_venda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idcompra_venda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `financeiro`
 --
 ALTER TABLE `financeiro`
-  MODIFY `idfinanceiro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idfinanceiro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  MODIFY `idfornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idfornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `funcao`
 --
 ALTER TABLE `funcao`
-  MODIFY `idfuncao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idfuncao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `orcamento`
 --
 ALTER TABLE `orcamento`
-  MODIFY `idorcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idorcamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pessoa`
 --
 ALTER TABLE `pessoa`
-  MODIFY `idpessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idpessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `idpet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idpet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pet_raca`
 --
 ALTER TABLE `pet_raca`
-  MODIFY `idpet_raca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idpet_raca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `pet_tipo`
 --
 ALTER TABLE `pet_tipo`
-  MODIFY `idpet_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idpet_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `servico`
 --
 ALTER TABLE `servico`
-  MODIFY `idservico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idservico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
