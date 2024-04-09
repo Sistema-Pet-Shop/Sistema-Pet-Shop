@@ -18,5 +18,12 @@ $inserir = mysql_query("INSERT INTO atendimento
 		        VALUES('$idatendimento','$pet_idpet', '$idcliente', '$funcionario_veterinario', 
                 '$funcionario_entrada', '$funcionario_saida','$data_hora_entrada','$data_hora_saida','$descricao')") 
                 or die(mysql_error());
+
+
+// Verificar se a inserção foi bem-sucedida
+if ($inserir) {
+    echo "<script>alert('Atendimento incluído com sucesso!'); window.location.href='../incluir.html';</script>";
+}
+
 mysql_close($db);
 ?>

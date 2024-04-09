@@ -15,5 +15,11 @@ $financeiro_tipo = $_POST['financeiro_tipo'];
 $inserir = mysql_query("INSERT INTO financeiro
                 (idfinanceiro, idatendimento,valor,compra_venda, data_vencimento, data_pagamento, status,financeiro_tipo) 
 		        VALUES('$idfinanceiro','$idatendimento', '$valor','$compra_venda', '$data_vencimento', '$data_pagamento', '$status','$financeiro_tipo')") or die(mysql_error());
+
+// Verificar se a inserção foi bem-sucedida
+if ($inserir) {
+    echo "<script>alert('Atendimento incluído com sucesso!'); window.location.href='../incluir.html';</script>";
+}
+
 mysql_close($db);
 ?>

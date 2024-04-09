@@ -22,8 +22,5 @@ $db_selected = mysql_select_db($database, $db);
 if (!$db_selected) {
     die("Erro ao selecionar o banco de dados: " . mysql_error());
 }
-<<<<<<< HEAD
+
 ?>
-=======
-?>
->>>>>>> a099b80a1886b1df5a8e57adb0a9802c1b2a2af3

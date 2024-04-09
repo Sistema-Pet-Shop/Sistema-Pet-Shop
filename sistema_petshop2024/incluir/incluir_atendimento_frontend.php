@@ -8,6 +8,8 @@
 
     <title>Incluir Atendimento</title>
 
+    <script src="https://kit.fontawesome.com/0df5057ab7.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
@@ -126,7 +128,7 @@
                     <input type="text" class="form-control" id="descricao" name="descricao">
                 </div>
 
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Incluir</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name="Submit" value="Incluir">Incluir</button>
 
             </form>
         </div>
