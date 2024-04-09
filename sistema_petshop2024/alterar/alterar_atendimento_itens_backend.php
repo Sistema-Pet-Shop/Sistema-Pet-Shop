@@ -10,7 +10,7 @@ $descricao = $_POST['descricao'];
 $alterar = mysql_query("UPDATE atendimento_itens 
                     SET idatendimento = '$idatendimento',
 					descricao = '$descricao', 
-					idservico = '$idservico'")
+					WHERE idservico = '$idservico'")
 					or die (mysql_error());
 mysql_close ($db);
 include "../consulta/consulta_atendimento_itens.php";

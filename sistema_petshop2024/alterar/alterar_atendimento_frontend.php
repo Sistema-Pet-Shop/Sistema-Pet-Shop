@@ -88,9 +88,9 @@
             </select><br><br>
 
 
-            Data e Hora de Entrada: <input type="datetime-local" name="data_hora_entrada"><br><br>
+            Data e Hora de Entrada: <input type="datetime" name="data_hora_entrada"><br><br>
             
-            Data e Hora de Saída: <input type="datetime-local" name="data_hora_saida"><br><br>
+            Data e Hora de Saída: <input type="datetime" name="data_hora_saida"><br><br>
             
             Descrição: <input type="text" name="descricao"><br><br>
 
