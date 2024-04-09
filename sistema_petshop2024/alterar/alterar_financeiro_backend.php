@@ -20,6 +20,7 @@ $alterar = mysql_query("UPDATE financeiro
 					data_pagamento = '$data_pagamento',
 					status = '$status',
 					financeiro_tipo = '$financeiro_tipo'
+					
 					WHERE idfinanceiro = '$idfinanceiro'")
 					or die (mysql_error());
 mysql_close ($db);

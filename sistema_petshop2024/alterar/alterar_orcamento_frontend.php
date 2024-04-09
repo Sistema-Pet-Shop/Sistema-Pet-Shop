@@ -31,8 +31,8 @@
             }
             ?>
         </select><br><br>
-        Valor: <input type="text" name="valor"><br><br> 
-        Data de validade: <input type="text" name="data_validade"><br><br> 
+        Valor: <input type="double" name="valor"><br><br> 
+        Data de validade: <input type="datetime-local" name="data_validade"><br><br>
 
         <input type="submit" name="Submit" value="Alterar">
     </form>

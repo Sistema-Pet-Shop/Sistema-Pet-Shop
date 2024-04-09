@@ -8,7 +8,7 @@ $data_hora_saida = $_POST['data_hora_saida'];
 $descricao = $_POST['descricao'];
 $pet_idpet = $_POST['pet_idpet'];
 $idcliente = $_POST['idcliente'];
-$fucionario_veterinario = $_POST['fucionario_veterinario'];
+$funcionario_veterinario = $_POST['funcionario_veterinario'];
 $funcionario_entrada = $_POST['funcionario_entrada'];
 $funcionario_saida = $_POST['funcionario_saida'];
 
@@ -20,7 +20,7 @@ $alterar = mysql_query("UPDATE atendimento
 					descricao= '$descricao',
 					pet_idpet= '$pet_idpet',
 					idcliente= '$idcliente',
-					fucionario_veterinario= '$fucionario_veterinario',
+					funcionario_veterinario= '$funcionario_veterinario',
 					funcionario_entrada= '$funcionario_entrada',
 					funcionario_saida= '$funcionario_saida'
 

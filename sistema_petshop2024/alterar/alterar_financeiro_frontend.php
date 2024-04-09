@@ -44,7 +44,7 @@
                 ?>
             </select><br><br>
 
-            Valor: <input type="number" name="valor"><br><br>
+            Valor: <input type="double" name="valor"><br><br>
             
             Data de Vencimento: <input type="datetime-local" name="data_vencimento"><br><br>
 
@@ -52,7 +52,7 @@
 
             Status: <input type="text" name="status"><br><br>
 
-            Tipo financeiro: <input type="text" name="financeiro_tipo"><br><br>
+            Tipo financeiro: <input type="int" name="financeiro_tipo"><br><br>
             
             <input type="submit" name="Submit" value="Alterar">
 

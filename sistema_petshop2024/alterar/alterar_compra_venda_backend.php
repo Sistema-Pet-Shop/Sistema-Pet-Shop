@@ -2,27 +2,24 @@
 error_reporting(0);
 include "../conexao.php";
 
-$idatendimento = $_POST['idatendimento'];
-$pet_idpet = $_POST['pet_idpet'];
-$idcliente = $_POST['idcliente'];
-$funcionario_veterinario = $_POST['funcionario_veterinario'];
-$funcionario_entrada = $_POST['funcionario_entrada'];
-$funcionario_saida = $_POST['funcionario_saida'];
-$data_hora_entrada = $_POST['data_hora_entrada'];
-$data_hora_saida = $_POST['data_hora_saida'];
+$idcompra_venda = $_POST['idcompra_venda'];
+$idfornecedor = $_POST['idfornecedor'];
+$cliente_idcliente = $_POST['cliente_idcliente'];
 $descricao = $_POST['descricao'];
+$valor = $_POST['valor'];
+$nro_nota = $_POST['nro_nota'];
+$tipo = $_POST['tipo'];
 				
-$alterar = mysql_query("UPDATE atendimento 
-                    SET pet_idpet = '$pet_idpet',
-						idcliente = '$idcliente', 
-						funcionario_veterinario = '$funcionario_veterinario',
-						funcionario_entrada = '$funcionario_entrada',
-						funcionario_saida = '$funcionario_saida',
-						data_hora_entrada = '$data_hora_entrada',
-						data_hora_saida = '$data_hora_saida',
-						descricao = '$descricao'
+$alterar = mysql_query("UPDATE compra_venda 
+                    SET idcompra_venda = '$idcompra_venda',
+					idfornecedor = '$idfornecedor', 
+					cliente_idcliente = '$cliente_idcliente',
+					descricao = '$descricao',
+					valor = '$valor',
+					nro_nota = '$nro_nota',
+					tipo = '$tipo'
 					
-					WHERE idatendimento = '$idatendimento'")
+					WHERE idcompra_venda = '$idcompra_venda'")
 					or die (mysql_error());
 mysql_close ($db);
 include "../consulta/consulta_compra_venda.php";

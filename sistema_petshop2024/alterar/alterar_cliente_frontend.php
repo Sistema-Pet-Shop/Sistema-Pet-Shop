@@ -16,6 +16,7 @@
                         echo "<option value=\"$cod\">$cod</option>\n";
                     }
                     ?>
+                </select><br><br>
 
                 ID Pessoa:<select size="1" name="idpessoa">
                     <?php
