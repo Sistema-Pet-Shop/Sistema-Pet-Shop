@@ -2,7 +2,7 @@
 <center>
 
     <body bgcolor="mediumturquoise">
-        <form method="POST" action="alterar_orcamento_backend.php">
+        <form method="POST" action="alterar_funcionario_funcao_backend.php">
             <p><br>
 
                 Funcionário Matricula:<select size="1" name="funcionario_matricula">

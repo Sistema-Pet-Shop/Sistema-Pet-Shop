@@ -9,8 +9,8 @@ $telefone = $_POST['telefone'];
 
 $alterar = mysql_query("UPDATE pessoa 
 					SET nome = '$nome',
-					SET idade = '$idade',
-					SET telefone = '$telefone'
+					idade = '$idade',
+					telefone = '$telefone'
 					WHERE idpessoa = '$idpessoa'")
 					or die (mysql_error());
 mysql_close($db);

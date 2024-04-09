@@ -2,7 +2,7 @@
 <center>
 
     <body bgcolor="mediumturquoise">
-        <form method="POST" action="alterar_orcamento_backend.php">
+        <form method="POST" action="alterar_compra_venda_backend.php">
             <p><br>
 
                 ID: <select size="1" name="idcompra_venda">
@@ -45,9 +45,9 @@
                 </select><br><br>
 
                 Descrição: <input type="text" name="descricao"><br><br>
-                Valor: <input type="text" name="valor"><br><br>
+                Valor: <input type="double" name="valor"><br><br>
                 Numero nota fiscal: <input type="text" name="nro_nota"><br><br>
-                Tipo: <input type="text" name="tipo"><br><br>
+                Tipo: <input type="int" name="tipo"><br><br>
 
                 <input type="submit" name="Submit" value="Alterar">
         </form>

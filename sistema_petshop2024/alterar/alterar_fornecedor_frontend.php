@@ -2,7 +2,7 @@
 <center>
 
     <body bgcolor="mediumturquoise">
-        <form method="POST" action="alterar_cliente_backend.php">
+        <form method="POST" action="alterar_fornecedor_backend.php">
             <p><br>
 
                 ID: <select size="1" name="idfornecedor">
