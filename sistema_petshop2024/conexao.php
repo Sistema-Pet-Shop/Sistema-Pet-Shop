@@ -1,37 +1,25 @@
 <?php
-#$db = mysql_connect("root");
-#mysql_select_db("sistema_petshop2024", $db);
+// $db = mysql_connect("root");
+// mysql_select_db("sistema_petshop2024", $db);
 
-// Configurações de conexão com o banco de dados
-$hostname = "localhost";  // Endereço do servidor MySQL
-$username = "root";       // Nome de usuário do MySQL
-$password = "";   // Senha do MySQL
-$database = "sistema_petshop2024";  // Nome do banco de dados
+$hostname = "localhost";
+$username = "root";
+$password = "vertrigo";
+$database = "sistema_petshop2024";
 
-// Conectando ao banco de dados usando mysqli
-$db = new mysql($hostname, $username, $password, $database);
+// Conexão com o banco de dados usando mysql
+$db = mysql_connect($hostname, $username, $password);
 
-// Verificar a conexão
-if ($db->connect_error) {
-    die("Falha ao conectar ao MySQL: " . $db->connect_error);
+// Verificando se a conexão foi estabelecida
+if (!$db) {
+    die("Erro ao conectar ao banco de dados: " . mysql_error());
 }
 
-// Exemplo de consulta
-$query = "SELECT * FROM atendimento";
-$result = $db->query($query);
+// Selecionando o banco de dados
+$db_selected = mysql_select_db($database, $db);
 
-// Verificar se a consulta foi bem-sucedida
-if ($result) {
-    // Processar os resultados
-    while ($row = $result->fetch_assoc()) {
-        // Fazer algo com os dados
-    }
-} else {
-    echo "Erro na consulta: " . $db->error;
+// Verificando se o banco de dados foi selecionado corretamente
+if (!$db_selected) {
+    die("Erro ao selecionar o banco de dados: " . mysql_error());
 }
-
-// Fechar a conexão
-$db->close();
-
 ?>
-

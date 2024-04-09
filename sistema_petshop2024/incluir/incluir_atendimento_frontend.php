@@ -1,96 +1,140 @@
-<!--Inicio Incluir-->
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/Icon.png">
+
+    <title>Incluir Atendimento</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
-    
-    <link rel="stylesheet" type="text/css" href="formata_padrao.css" />-->
-<center>
+</head>
 
-    <body bgcolor="mediumturquoise">
-        <form method="POST" action="incluir_atendimento_backend.php">
-            <p><br>
+<body>
+    <header>
 
-            ID Atendimento: <input type="text" name="idatendimento"><br><br>
+    <div class="navbar navbar-dark bg-dark shadow p-3 fixed-top">
+        <div class="container d-flex justify-content-between">
+            <a href="../index.html" class="navbar-brand d-flex align-items-center">
+                <i class="fa-solid fa-paw" style="color:rgb(13,110,253); margin: 5px;"></i>
+                <strong>Sistema Pet Shop</strong>
+            </a>
+            <a href="../incluir.html">Voltar</a>
+        </div>
+    </div>
 
-            ID Pet:<select size="1" name="pet_idpet">
-                    <?php
-                    include "../conexao.php";
+    </header>
 
-                    $res = mysql_query("select * from pet");
-                    while ($registro = mysql_fetch_row($res)) {
-                        $cod = $registro[0];
+    <main role="main" class="container">
+        <div class="my-5 col-md-8 p-5 bg-white rounded shadow-sm mx-auto">
+            <form method="POST" action="incluir_atendimento_backend.php">
 
-                        echo "<option value=\"$cod\">$cod</option>\n";
-                    }
-                    ?>
-                </select><br><br>
+                <div class="row">
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="idatendimento">ID Atendimento</label>
+                        <input type="text" class="form-control" id="idatendimento" name="idatendimento" required>
+                    </div>
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="pet_idpet">ID Pet</label>
+                        <select class="form-control" id="pet_idpet" name="pet_idpet" required>
+                            <?php
+                            include "../conexao.php";
+                            $res = mysql_query("select * from pet");
+                            while ($registro = mysql_fetch_row($res)) {
+                                $cod = $registro[0];
+                                echo "<option value=\"$cod\">$cod</option>\n";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
 
-            ID Cliente:<select size="1" name="idcliente">
-                <?php
-                include "../conexao.php";
+                <div class="row">
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="idcliente">ID Cliente</label>
+                        <select class="form-control" id="idcliente" name="idcliente" required>
+                            <?php
+                            include "../conexao.php";
+                            $res = mysql_query("select * from cliente");
+                            while ($registro = mysql_fetch_row($res)) {
+                                $cod = $registro[0];
+                                echo "<option value=\"$cod\">$cod</option>\n";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="funcionario_veterinario">ID Funcionário Veterinário</label>
+                        <select class="form-control" id="funcionario_veterinario" name="funcionario_veterinario" required>
+                            <?php
+                            include "../conexao.php";
+                            $res = mysql_query("select * from funcionario");
+                            while ($registro = mysql_fetch_row($res)) {
+                                $cod = $registro[0];
+                                echo "<option value=\"$cod\">$cod</option>\n";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
 
-                $res = mysql_query("select * from cliente");
-                while ($registro = mysql_fetch_row($res)) {
-                    $cod = $registro[0];
+                <div class="row">
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="funcionario_entrada">ID Funcionário Admissão</label>
+                        <select class="form-control" id="funcionario_entrada" name="funcionario_entrada" required>
+                            <?php
+                            include "../conexao.php";
+                            $res = mysql_query("select * from funcionario");
+                            while ($registro = mysql_fetch_row($res)) {
+                                $cod = $registro[0];
+                                echo "<option value=\"$cod\">$cod</option>\n";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="funcionario_saida">ID Funcionário Demissão</label>
+                        <select class="form-control" id="funcionario_saida" name="funcionario_saida" required>
+                            <?php
+                            include "../conexao.php";
+                            $res = mysql_query("select * from funcionario");
+                            while ($registro = mysql_fetch_row($res)) {
+                                $cod = $registro[0];
+                                echo "<option value=\"$cod\">$cod</option>\n";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
 
-                    echo "<option value=\"$cod\">$cod</option>\n";
-                }
-                ?>
-            </select><br><br>
+                <div class="row">
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="data_hora_entrada">Data e Hora de Entrada</label>
+                        <input type="datetime-local" class="form-control" id="data_hora_entrada" name="data_hora_entrada" required>
+                    </div>
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="data_hora_saida">Data e Hora de Saída</label>
+                        <input type="datetime-local" class="form-control" id="data_hora_saida" name="data_hora_saida" required>
+                    </div>
+                </div>
 
-            ID Funcionario Veterinário:<select size="1" name="funcionario_veterinario">
-                <?php
-                include "../conexao.php";
+                <div class="mb-3">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" class="form-control" id="descricao" name="descricao">
+                </div>
 
-                $res = mysql_query("select * from funcionario");
-                while ($registro = mysql_fetch_row($res)) {
-                    $cod = $registro[0];
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Incluir</button>
 
-                    echo "<option value=\"$cod\">$cod</option>\n";
-                }
-                ?>
-            </select><br><br>
+            </form>
+        </div>
 
-            
-            ID Funcionario Admissão:<select size="1" name="funcionario_entrada">
-                <?php
-                include "../conexao.php";
+    </main>
 
-                $res = mysql_query("select * from funcionario");
-                while ($registro = mysql_fetch_row($res)) {
-                    $cod = $registro[0];
+</body>
 
-                    echo "<option value=\"$cod\">$cod</option>\n";
-                }
-                ?>
-            </select><br><br>
-
-            
-            ID Funcionario Demissão:<select size="1" name="funcionario_saida">
-                <?php
-                include "../conexao.php";
-
-                $res = mysql_query("select * from funcionario");
-                while ($registro = mysql_fetch_row($res)) {
-                    $cod = $registro[0];
-
-                    echo "<option value=\"$cod\">$cod</option>\n";
-                }
-                ?>
-            </select><br><br>
+</html>
 
 
-            Data e Hora de Entrada: <input type="datetime-local" name="data_hora_entrada"><br><br>
-            
-            Data e Hora de Saída: <input type="datetime-local" name="data_hora_saida"><br><br>
-            
-            Descrição: <input type="text" name="descricao"><br><br>
-
-            <input type="submit" name="Submit" value="Incluir">
-
-        </form>
-</center>
-<!--Fim Incluir-->
