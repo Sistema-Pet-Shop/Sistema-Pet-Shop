@@ -1,50 +1,112 @@
-<!--Inicio Incluir-->
-<center>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <body bgcolor="mediumturquoise">
-        <form method="POST" action="incluir_financeiro_backend.php">
-            <p><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/Icon.png">
 
-            ID Financeiro: <input type="text" name="idfinanceiro"><br><br>
+    <title>Incluir Financeiro</title>
 
-            ID Atendimento:<select size="1" name="idatendimento">
-                    <?php
-                    include "../conexao.php";
+    <script src="https://kit.fontawesome.com/0df5057ab7.js" crossorigin="anonymous"></script>
 
-                    $res = mysql_query("select * from atendimento");
-                    while ($registro = mysql_fetch_row($res)) {
-                        $cod = $registro[0];
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
 
-                        echo "<option value=\"$cod\">$cod</option>\n";
-                    }
-                    ?>
-                </select><br><br>
+<body>
 
-            ID Compra Venda:<select size="1" name="compra_venda">
-                <?php
-                include "../conexao.php";
+<header>
 
-                $res = mysql_query("select * from compra_venda");
-                while ($registro = mysql_fetch_row($res)) {
-                    $cod = $registro[0];
+    <div class="navbar navbar-dark bg-dark shadow p-3 fixed-top">
+        <div class="container d-flex justify-content-between">
+            <a href="../index.html" class="navbar-brand d-flex align-items-center">
+                <i class="fa-solid fa-paw" style="color:rgb(13,110,253); margin: 5px;"></i>
+                <strong>Sistema Pet Shop</strong>
+            </a>
+            <a href="../incluir.html">Voltar</a>
+        </div>
+    </div>
 
-                    echo "<option value=\"$cod\">$cod</option>\n";
-                }
-                ?>
-            </select><br><br>
+    </header>
 
-            Valor: <input type="number" name="valor"><br><br>
-            
-            Data de Vencimento: <input type="datetime-local" name="data_vencimento"><br><br>
+    <main role="main" class="container">
+        <div class="my-5 col-md-8 p-5 bg-white rounded shadow-sm mx-auto">
 
-            Data de pagamento <input type="datetime-local" name="data_pagamento"><br><br>
+            <form method="POST" action="incluir_financeiro_backend.php">
 
-            Status: <input type="text" name="status"><br><br>
+                <div class="form-group">
+                    <label for="idfinanceiro">ID Financeiro:</label>
+                    <input type="text" class="form-control" id="idfinanceiro" name="idfinanceiro">
+                </div>
 
-            Tipo financeiro: <input type="text" name="financeiro_tipo"><br><br>
-            
-            <input type="submit" name="Submit" value="Incluir">
+                <div class="row">
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="idatendimento">ID Atendimento:</label>
+                        <select class="form-control" id="idatendimento" name="idatendimento">
+                            <?php
+                            include "../conexao.php";
 
-        </form>
-</center>
-<!--Fim Incluir-->
+                            $res = mysql_query("select * from atendimento");
+                            while ($registro = mysql_fetch_row($res)) {
+                                $cod = $registro[0];
+
+                                echo "<option value=\"$cod\">$cod</option>\n";
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="compra_venda">ID Compra Venda:</label>
+                        <select class="form-control" id="compra_venda" name="compra_venda">
+                            <?php
+                            include "../conexao.php";
+
+                            $res = mysql_query("select * from compra_venda");
+                            while ($registro = mysql_fetch_row($res)) {
+                                $cod = $registro[0];
+
+                                echo "<option value=\"$cod\">$cod</option>\n";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Valor:</label>
+                    <input type="number" class="form-control" id="valor" name="valor">
+                </div>
+
+                <div class="row">
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="data_vencimento">Data de Vencimento:</label>
+                        <input type="datetime-local" class="form-control" id="data_vencimento" name="data_vencimento">
+                    </div>
+
+                    <div class="col-md mb-3 mx-auto">
+                        <label for="data_pagamento">Data de Pagamento:</label>
+                        <input type="datetime-local" class="form-control" id="data_pagamento" name="data_pagamento">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <input type="text" class="form-control" id="status" name="status">
+                </div>
+
+                <div class="form-group">
+                    <label for="financeiro_tipo">Tipo Financeiro:</label>
+                    <input type="text" class="form-control" id="financeiro_tipo" name="financeiro_tipo">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Incluir</button>
+
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -1,29 +1,77 @@
-<!--Inicio Incluir-->
-<center>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <body bgcolor="mediumturquoise">
-        <form method="POST" action="incluir_fornecedor_backend.php">
-            <p><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/Icon.png">
 
-                ID: <input type="text" name="idfornecedor"><br><br>
+    <title>Incluir Fornecedor</title>
 
-                ID Pessoa:<select size="1" name="idpessoa">
-                    <?php
-                    include "../conexao.php";
+    <script src="https://kit.fontawesome.com/0df5057ab7.js" crossorigin="anonymous"></script>
 
-                    $res = mysql_query("select * from pessoa");
-                    while ($registro = mysql_fetch_row($res)) {
-                        $cod = $registro[0];
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
 
-                        echo "<option value=\"$cod\">$cod</option>\n";
-                    }
-                    ?>
-                </select><br><br>
-                Nome Fantasia: <input type="text" name="nomefantasia"><br><br>
+<body>
 
-                Razão Social: <input type="text" name="razaosocial"><br><br>
+    <header>
 
-                <input type="submit" name="Submit" value="Incluir">
-        </form>
-</center>
-<!--Fim Incluir-->
+    <div class="navbar navbar-dark bg-dark shadow p-3 fixed-top">
+        <div class="container d-flex justify-content-between">
+            <a href="../index.html" class="navbar-brand d-flex align-items-center">
+                <i class="fa-solid fa-paw" style="color:rgb(13,110,253); margin: 5px;"></i>
+                <strong>Sistema Pet Shop</strong>
+            </a>
+            <a href="../incluir.html">Voltar</a>
+        </div>
+    </div>
+
+    </header>
+
+    <main role="main" class="container">
+        <div class="my-5 col-md-8 p-5 bg-white rounded shadow-sm mx-auto">
+
+            <form method="POST" action="incluir_fornecedor_backend.php">
+
+                <div class="form-group">
+                    <label for="idfornecedor">ID:</label>
+                    <input type="text" class="form-control" id="idfornecedor" name="idfornecedor">
+                </div>
+
+                <div class="form-group">
+                    <label for="idpessoa">ID Pessoa:</label>
+                    <select class="form-control" id="idpessoa" name="idpessoa">
+                        <?php
+                        include "../conexao.php";
+
+                        $res = mysql_query("select * from pessoa");
+                        while ($registro = mysql_fetch_row($res)) {
+                            $cod = $registro[0];
+
+                            echo "<option value=\"$cod\">$cod</option>\n";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nomefantasia">Nome Fantasia:</label>
+                    <input type="text" class="form-control" id="nomefantasia" name="nomefantasia">
+                </div>
+
+                <div class="form-group">
+                    <label for="razaosocial">Razão Social:</label>
+                    <input type="text" class="form-control" id="razaosocial" name="razaosocial">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Incluir</button>
+
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>
