@@ -17,6 +17,12 @@ $alterar = mysql_query("UPDATE pet
 					pet_tipo_idpet_tipo = '$pet_tipo_idpet_tipo'
 					WHERE idpet = '$idpet'")
 					or die (mysql_error());
+
+// Verificar se a alteração foi bem-sucedida
+if ($alterar) {
+    echo "<script>alert('Alterado com sucesso! 🎉'); window.location.href='../alterar.html';</script>";
+}
+
 mysql_close($db);
 include "../consulta/consulta_pet.php";
 ?>

@@ -11,7 +11,7 @@ $inserir = mysql_query("INSERT INTO pet_raca
 
 // Verificar se a inserção foi bem-sucedida
 if ($inserir) {
-    echo "<script>alert('Atendimento incluído com sucesso!'); window.location.href='../incluir.html';</script>";
+    echo "<script>alert('Incluído com sucesso! 🎉'); window.location.href='../incluir.html';</script>";
 }
 
 mysql_close($db);

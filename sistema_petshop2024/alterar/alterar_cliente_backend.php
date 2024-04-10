@@ -11,6 +11,12 @@ $alterar = mysql_query("UPDATE cliente
 					cpf_cnpj = '$cpf_cnpj'
 					WHERE idcliente = '$idcliente'")
 					or die (mysql_error());
+
+// Verificar se a alteração foi bem-sucedida
+if ($alterar) {
+    echo "<script>alert('Alterado com sucesso! 🎉'); window.location.href='../alterar.html';</script>";
+}
+
 mysql_close($db);
 include "../consulta/consulta_cliente.php";
 ?>

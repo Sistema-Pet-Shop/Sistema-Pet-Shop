@@ -23,6 +23,12 @@ $alterar = mysql_query("UPDATE financeiro
 					
 					WHERE idfinanceiro = '$idfinanceiro'")
 					or die (mysql_error());
+
+// Verificar se a alteração foi bem-sucedida
+if ($alterar) {
+    echo "<script>alert('Alterado com sucesso! 🎉'); window.location.href='../alterar.html';</script>";
+}
+
 mysql_close ($db);
 include "../consulta/consulta_financeiro.php";
 ?>
