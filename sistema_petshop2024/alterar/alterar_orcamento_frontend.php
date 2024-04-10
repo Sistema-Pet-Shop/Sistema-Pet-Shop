@@ -1,40 +1,79 @@
-<!--Início Alterar-->
-<center>
-<body bgcolor="mediumturquoise">
-    <form method="POST" action="alterar_orcamento_backend.php">
-        <p><br>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-        ID:<select size="1" name="idorcamento">
-            <?php
-            include "../conexao.php";
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/Icon.png">
+    <title>Alterar Orçamento</title>
+    <script src="https://kit.fontawesome.com/0df5057ab7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
 
-            $res=mysql_query("select * from orcamento");
-            while ($registro=mysql_fetch_row($res))
-            {
-                $cod=$registro[0];
-                echo "<option value=\"$cod\">$cod</option>\n";
-            }
-            ?>
+<body>
 
-        </select><br><br>
+    <header>
+        <div class="navbar navbar-dark bg-dark shadow p-3 fixed-top">
+            <div class="container d-flex justify-content-between">
+                <a href="../index.html" class="navbar-brand d-flex align-items-center">
+                    <i class="fa-solid fa-paw" style="color:rgb(13,110,253); margin: 5px;"></i>
+                    <strong>Sistema Pet Shop</strong>
+                </a>
+                <a href="../alterar.html">Voltar</a>
+            </div>
+        </div>
 
-        ID Atendimento:<select size="1" name="idatendimento">
-            <?php
-            // Gera a lista de nota fiscal
-            include "../conexao.php";
+    </header>
+    
+    <main role="main" class="container">
+        <div class="my-5 col-md-6 p-5 bg-white rounded shadow-sm mx-auto">
+            <form method="POST" action="alterar_orcamento_backend.php">
 
-            $res=mysql_query("select * from atendimento");
-            while ($registro=mysql_fetch_row($res))
-            {
-                $cod=$registro[0];
-                echo "<option value=\"$cod\">$cod</option>\n";
-            }
-            ?>
-        </select><br><br>
-        Valor: <input type="double" name="valor"><br><br> 
-        Data de validade: <input type="datetime-local" name="data_validade"><br><br>
+                <div class="form-group">
+                    <label for="idorcamento">ID:</label>
+                    <select class="form-control" id="idorcamento" name="idorcamento">
+                        <?php
+                        include "../conexao.php";
+                        $res = mysql_query("select * from orcamento");
+                        while ($registro = mysql_fetch_row($res)) {
+                            $cod = $registro[0];
+                            echo "<option value=\"$cod\">$cod</option>\n";
+                        }
+                        ?>
+                    </select>
+                </div>
 
-        <input type="submit" name="Submit" value="Alterar">
-    </form>
-</center>
-<!--Fim Alterar-->
+                <div class="form-group">
+                    <label for="idatendimento">ID Atendimento:</label>
+                    <select class="form-control" id="idatendimento" name="idatendimento">
+                        <?php
+                        include "../conexao.php";
+                        $res = mysql_query("select * from atendimento");
+                        while ($registro = mysql_fetch_row($res)) {
+                            $cod = $registro[0];
+                            echo "<option value=\"$cod\">$cod</option>\n";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Valor:</label>
+                    <input type="number" class="form-control" id="valor" name="valor">
+                </div>
+
+                <div class="form-group">
+                    <label for="data_validade">Data de validade:</label>
+                    <input type="datetime-local" class="form-control" id="data_validade" name="data_validade">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>

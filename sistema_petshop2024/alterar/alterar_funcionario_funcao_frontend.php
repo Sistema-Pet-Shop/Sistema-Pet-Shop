@@ -1,38 +1,69 @@
-<!--Inicio Alterar-->
-<center>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <body bgcolor="mediumturquoise">
-        <form method="POST" action="alterar_funcionario_funcao_backend.php">
-            <p><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/Icon.png">
+    <title>Alterar Funcionário-Função</title>
+    <script src="https://kit.fontawesome.com/0df5057ab7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
 
-                Funcionário Matricula:<select size="1" name="funcionario_matricula">
-                    <?php
-                    // Gera a lista de nota fiscal
-                    include "../conexao.php";
+<body>
 
-                    $res = mysql_query("select * from funcionario");
-                    while ($registro = mysql_fetch_row($res)) {
-                        $cod = $registro[0];
+    <header>
+        <div class="navbar navbar-dark bg-dark shadow p-3 fixed-top">
+            <div class="container d-flex justify-content-between">
+                <a href="../index.html" class="navbar-brand d-flex align-items-center">
+                    <i class="fa-solid fa-paw" style="color:rgb(13,110,253); margin: 5px;"></i>
+                    <strong>Sistema Pet Shop</strong>
+                </a>
+                <a href="../alterar.html">Voltar</a>
+            </div>
+        </div>
 
-                        echo "<option value=\"$cod\">$cod</option>\n";
-                    }
-                    ?>
-                </select><br><br>
+    </header>
+    
+    <main role="main" class="container">
+        <div class=" my-5 col-md-6 p-5 bg-white rounded shadow-sm mx-auto">
+            <form method="POST" action="alterar_funcionario_funcao_backend.php">
 
-                Função:<select size="1" name="funcao_idfuncao">
-                    <?php
-                    include "../conexao.php";
+                <div class="form-group">
+                    <label for="funcionario_matricula">Funcionário Matrícula:</label>
+                    <select class="form-control" id="funcionario_matricula" name="funcionario_matricula">
+                        <?php
+                        include "../conexao.php";
+                        $res = mysql_query("select * from funcionario");
+                        while ($registro = mysql_fetch_row($res)) {
+                            $cod = $registro[0];
+                            echo "<option value=\"$cod\">$cod</option>\n";
+                        }
+                        ?>
+                    </select>
+                </div>
 
-                    $res = mysql_query("select * from funcao");
-                    while ($registro = mysql_fetch_row($res)) {
-                        $cod = $registro[0];
+                <div class="form-group">
+                    <label for="funcao_idfuncao">Função:</label>
+                    <select class="form-control" id="funcao_idfuncao" name="funcao_idfuncao">
+                        <?php
+                        include "../conexao.php";
+                        $res = mysql_query("select * from funcao");
+                        while ($registro = mysql_fetch_row($res)) {
+                            $cod = $registro[0];
+                            echo "<option value=\"$cod\">$cod</option>\n";
+                        }
+                        ?>
+                    </select>
+                </div>
 
-                        echo "<option value=\"$cod\">$cod</option>\n";
-                    }
-                    ?>
-                </select><br><br>
+                <button type="submit" class="btn btn-primary btn-block">Alterar</button>
 
-                <input type="submit" name="Submit" value="Alterar">
-        </form>
-</center>
-<!--Fim Alterar-->
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>
