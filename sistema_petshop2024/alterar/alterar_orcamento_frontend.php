@@ -68,7 +68,7 @@
                     <input type="datetime-local" class="form-control" id="data_validade" name="data_validade">
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+                <button type="submit" class="btn btn-warning btn-block">Alterar</button>
 
             </form>
         </div>

@@ -67,7 +67,7 @@
                     <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj">
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+                <button type="submit" class="btn btn-warning btn-block">Alterar</button>
 
             </form>
         </div>

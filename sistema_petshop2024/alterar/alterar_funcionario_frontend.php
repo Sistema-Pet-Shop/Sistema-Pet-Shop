@@ -85,7 +85,7 @@
                     <input type="date" class="form-control" id="data_demissao" name="data_demissao">
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+                <button type="submit" class="btn btn-warning btn-block">Alterar</button>
 
             </form>
         </div>
