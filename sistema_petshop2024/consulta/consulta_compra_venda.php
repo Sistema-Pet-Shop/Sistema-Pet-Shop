@@ -1,42 +1,63 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <head>
-<center>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Consulta Compra e Venda</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Consulta Compra e Venda</title>
+	<script src="https://kit.fontawesome.com/0df5057ab7.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
 <body>
-<?php
-error_reporting(0);
-include "../conexao.php";
-$result = mysql_query("select * from compra_venda", $db);
-echo "<table border='2'>
-<tr>
-<td><h4>ID Compra e Venda</h4></td>
-<td><h4>Descrição</h4></td>
-<td><h4>Valor</h4></td>
-<td><h4>Nro da Nota</h4></td>
-<td><h4>ID Fornecedor</h4></td>
-<td><h4>ID Cliente</h4></td>
-<td><h4>Tipo</h4></td>
-</tr>";
-// Escreve resultado até que não haja mais linhas na tabela
-while($row = mysql_fetch_array($result)) {
-echo "<tr>
-	<td>".$row["idcompra_venda"]."</td>
-	<td>".$row["descricao"]."</td>
-	<td>".$row["valor"]."</td>
-	<td>".$row["nro_nota"]."</td>
-	<td>".$row["idfornecedor"]."</td>
-	<td>".$row["cliente_idcliente"]."</td>
-	<td>".$row["tipo"]."</td>
-	</tr><br>";
-	}
-	echo "</table></center>";
-	echo "<br />";mysql_free_result($result);
-mysql_close ($db);
-?>
-<br><br>
-<form><center>
-<input type="button" value="Voltar" onClick="JavaScript: window.history.back();">
-</form></center>
-</center>
-<!--Fim Consulta-->
+<header>
+	<div class="navbar navbar-dark bg-dark shadow p-3 fixed-top">
+		<div class="container d-flex justify-content-between">
+			<a href="../index.html" class="navbar-brand d-flex align-items-center">
+				<i class="fa-solid fa-paw" style="color:rgb(13,110,253); margin: 5px;"></i>
+				<strong>Sistema Pet Shop</strong>
+			</a>
+			<a href="../consultar.html">Voltar</a>
+		</div>
+	</div>
+
+</header>
+
+<main role="main" class="container my-5 p-5 mx-auto">
+	<?php
+	error_reporting(0);
+	include "../conexao.php";
+	$result = mysql_query("select * from compra_venda", $db);
+	echo "<table class='table table-bordered table-striped'>
+	<tr>
+		<td scope='col' style='background-color: var(--color-purple);'><h6 class='text-white'>ID Compra e Venda</h6></td>
+		<td scope='col' style='background-color: var(--color-purple);'><h6 class='text-white'>Descrição</h6></td>
+		<td scope='col' style='background-color: var(--color-purple);'><h6 class='text-white'>Valor</h6></td>
+		<td scope='col' style='background-color: var(--color-purple);'><h6 class='text-white'>Nro da Nota</h6></td>
+		<td scope='col' style='background-color: var(--color-purple);'><h6 class='text-white'>ID Fornecedor</h6></td>
+		<td scope='col' style='background-color: var(--color-purple);'><h6 class='text-white'>ID Cliente</h6></td>
+		<td scope='col' style='background-color: var(--color-purple);'><h6 class='text-white'>Tipo</h6></td>
+	</tr>";
+	// Escreve resultado até que não haja mais linhas na tabela
+	while($row = mysql_fetch_array($result)) {
+	echo "<tr>
+			<td>".$row["idcompra_venda"]."</td>
+			<td>".$row["descricao"]."</td>
+			<td>".$row["valor"]."</td>
+			<td>".$row["nro_nota"]."</td>
+			<td>".$row["idfornecedor"]."</td>
+			<td>".$row["cliente_idcliente"]."</td>
+			<td>".$row["tipo"]."</td>
+		</tr><br>";
+		}
+		echo "</table></center>";
+		echo "<br />";mysql_free_result($result);
+	mysql_close ($db);
+	?>
+</main>
+
+</body>
+
+</html>
