@@ -3,6 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="icon" href="../img/Icon.png">
     <title>Consulta Atendimento</title>
     <script src="https://kit.fontawesome.com/0df5057ab7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css">
